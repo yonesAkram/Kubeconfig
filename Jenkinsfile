@@ -10,7 +10,8 @@ pipeline {
             steps {
                 echo "Applying Kubernetes Deployment..."
                 script {
-                    withCredentials([string(credentialsId: 'ab27e85f-d8fe-44c5-843e-7d0bb99ad98d', variable: 'KUBE_CONFIG_FILE')]) {
+                     
+                    withCredentials([file(credentialsId: 'ab27e85f-d8fe-44c5-843e-7d0bb99ad98d', variable: 'KUBE_CONFIG_FILE')]) {
                         sh '''
                             ###
                             cp ${KUBE_CONFIG_FILE} ~/.kube/config
