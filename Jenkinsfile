@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        KUBE_CONFIG = credentials('6440e0ec-6cd7-4738-80b2-8ba7b8afe427') 
+        KUBE_CONFIG = credentials('ab27e85f-d8fe-44c5-843e-7d0bb99ad98d') 
     }
 
         stages {
