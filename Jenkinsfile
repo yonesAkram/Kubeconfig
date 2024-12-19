@@ -12,10 +12,10 @@ pipeline {
             steps {
                 echo "Applying Kubernetes Deployment..."
                 script {
-  withCredentials([string(credentialsId: 'ab27e85f-d8fe-44c5-843e-7d0bb99ad98d', variable: 'KUBE_TOKEN')]) {
+                        withCredentials([string(credentialsId: 'ab27e85f-d8fe-44c5-843e-7d0bb99ad98d', variable: 'KUBE_CONFIG')]) {
                         sh '''
 
-                            kubectl config set-credentials yonesakram --token=${KUBE_TOKEN}
+                            kubectl config set-credentials yonesakram --token=${KUBE_CONFIG}
                             kubectl config set-context --current --user=yonesakram
 
                             kubectl apply -f sec.yaml -n all
