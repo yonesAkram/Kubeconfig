@@ -7,13 +7,7 @@ pipeline {
     }
 
         stages {
-            stage('Checkout Code') {
-                steps {
-                    echo "Checking out source code from GitHub..."
-                    checkout scm
-                }
-            }
-
+          
         stage('Deploy to Kubernetes') {
             steps {
                 echo "Applying Kubernetes Deployment..."
@@ -29,13 +23,6 @@ pipeline {
                     }
                 }
             }
-        }
-    }
-
-    post {
-        always {
-            echo "Cleaning up workspace..."
-            cleanWs()
         }
     }
 }
